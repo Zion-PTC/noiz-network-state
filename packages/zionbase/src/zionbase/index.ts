@@ -1,6 +1,7 @@
 export * as Class from "./Class";
 export * as DataStructure from "./DataStructures";
 export * as Types from "./Types";
+export { staticImplements } from "./Decorators";
 
 // Mixin
 export * as Mixin from "./Mixin";
@@ -11,7 +12,6 @@ export type {
   TSCtor,
   TSGCtor,
 } from "./Mixin";
-export * as Zion from "./Zion/index";
 export * as DataStructures from "./DataStructures";
 export {
   Base,
@@ -72,3 +72,4 @@ export {
   Algo,
   dfs,
 } from "./Algo";
+export * as Decorators from './Decorators'

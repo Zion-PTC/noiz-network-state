@@ -1,4 +1,4 @@
-import { staticImplements as si } from "../../Decorators/staticImplements.js";
+import { staticImplements as si } from "../../Decorators";
 
 export interface IBase_v1 {
   name: string;
