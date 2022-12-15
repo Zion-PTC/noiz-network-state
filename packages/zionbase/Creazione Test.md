@@ -34,8 +34,9 @@ root
 | | |__src
 | |   |__someFile.ts
 | |__Entrypoint2
-|   |__src
-|     |__someOtherFile.ts
+|   |__someFolder
+|   | |__someFileInFolder.ts
+|   |__someOtherFile.ts
 |__test
   |__Entrypoint1
   | |__someFile.test.ts
