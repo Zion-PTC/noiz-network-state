@@ -301,4 +301,15 @@ ritornato dalla funzione.
 ...
 ```
 
+## LISTA TITOLI
+
 // TODO mettere i titoli in una lista
+/// non so come renderli cliccabili in anteprima
+
+- [ ] Prima fase: crezione del test per controllare la correttezza dell'export
+- [ ] Spostare il file
+- [ ] Copiamo il codice della funzionE
+- [ ] Cambiare interfaccia
+- [ ] Cancellare il file precedente
+- [ ] Effettuare il build
+- [ ] Rifare il test
