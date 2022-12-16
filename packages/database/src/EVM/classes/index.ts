@@ -1,4 +1,1 @@
-export {};
-
-//// NoizContractFactory
-// export * from "./NoizContractFactory";
+export * from "./NoizContractFactory";
