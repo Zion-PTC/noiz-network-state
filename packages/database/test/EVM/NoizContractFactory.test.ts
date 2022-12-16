@@ -3,6 +3,7 @@ import { testEnvironment } from "@zionstate/test";
 // rappresenta il codice che stiamo testando.
 // deve essere preso dall'endpoint che stiamo valutando
 import { NoizContractFactory } from "../../src/EVM";
+NoizContractFactory;
 
 const { expect, log } = testEnvironment();
 expect;
