@@ -1,11 +1,13 @@
-// rappresenta il paccheto con le funzioni per i test
 import { testEnvironment } from "@zionstate/test";
-// rappresenta il codice che stiamo testando.
-// deve essere preso dall'endpoint che stiamo valutando
-import "../../src/IPFS";
+import { addAndPrintLog } from "../../src/IPFS";
 
 const { expect, log } = testEnvironment();
 expect;
 log;
-// addAndPrintLog;
-log("prova");
+
+describe("addAndPrintLog function is correctly exported", () => {
+  const regex = /addAndPrintLog/g;
+  const name = addAndPrintLog.name;
+  const res = regex.test(name);
+  expect(res).to.be.true;
+});

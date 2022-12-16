@@ -17,7 +17,7 @@ interface LogInfos {
   filename: string;
 }
 
-export async function addAndPrintLog(
+export async function addAndPrintLog_v1(
   ipfs: IPFSHTTPClient,
   filename: string,
   logTargetFolder: string,
