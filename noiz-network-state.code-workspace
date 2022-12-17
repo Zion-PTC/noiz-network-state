@@ -1,20 +1,17 @@
 {
   "folders": [
-    {
-      "name": "noiz-network-state",
-      "path": "."
-    },
-    {
-      "name": "apps",
-      "path": "apps"
-    },
-    {
-      "name": "packages",
-      "path": "packages"
-    },
-    {
-      "path": "bin"
-    }
+    { "path": "." },
+    { "path": "packages/ui" },
+    { "path": "packages/ui/src" },
+    { "path": "packages/ui/src/pages" },
+    { "path": "packages/ui/src/pages/classes" },
+    { "path": "packages/ui/src/pages/classes/pages" },
+    { "path": "packages/ui/src/pages/classes/pages/item" },
+    { "path": "packages/ui/src/HTML" },
+    { "path": "packages/ui/src/HTML/React" },
+    { "path": "packages/ui/src/HTML/React/classes/" },
+    { "path": "packages/ui/src/HTML/React/classes/pages" },
+    { "path": "packages/ui/src/HTML/React/classes/pages/ItemPage" }
   ],
   "settings": {}
 }
