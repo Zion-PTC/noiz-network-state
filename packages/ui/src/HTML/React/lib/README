@@ -1,0 +1,60 @@
+// TODO sistemare globals
+
+# Cartella Lib
+
+## Usage
+
+Questa cartella dovrebbe contenere
+
+- libreria di istanze
+- libreria di tipo
+- funzionalità utili globalmente
+
+## Situazione al momento
+
+### global.ts
+
+contiene dei tipi che dovrebbero essere accessibili
+globlamente. questa cartella non dovrebbe contenere tipi
+generici
+
+### utility.ts
+
+### colors
+
+dovrebbe contenere istanze di palettes
+
+### constants
+
+contiene delle costanti
+
+### global
+
+al moment contiene solo base noize ma l'idea è che qui
+vengano messe delle classi accessibili globalmente
+
+### hooks
+
+contiene gli hook che pero non usiamo piu
+
+### util
+
+sono funzioni utili in tutta l'applicazione, molto
+probabilmente il loro posto giusto è allinterno di uno dei
+nostri package.
+
+### types
+
+contiene cose un po a radom, va creata una cartella types
+definitiva, probabilmente basta portare `global.ts` e
+`utility.ts` dentro questa cartelle.
+
+contiene dei tipi particolari sono quelli che accettano dei
+generici e che compiono delle specie di funzioni.
+
+Bisogna mettere a posto
+
+- [ ] file global.ts
+- [ ] cartella global che clasha co file
+- [ ] riesportare tutti i type precedetemente fatti
+- [ ] cancellare la cartella types
