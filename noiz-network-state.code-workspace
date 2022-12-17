@@ -2,18 +2,47 @@
   "folders": [
     {
       "name": "noiz-network-state",
-      "path": "."
+      "path": "./"
     },
     {
-      "name": "apps",
-      "path": "apps"
+      "name": "ui",
+      "path": "packages/ui"
     },
     {
-      "name": "packages",
-      "path": "packages"
+      "name": "database",
+      "path": "packages/database"
     },
     {
-      "path": "bin"
+      "name": "EVM",
+      "path": "packages/database/src/EVM"
+    },
+    {
+      "name": "Blockchain",
+      "path": "packages/database/src/Blockchain"
+    },
+    {
+      "name": "src",
+      "path": "packages/database/src/Blockchain/src"
+    },
+    {
+      "name": "zion_contracts",
+      "path": "packages/database/src/Blockchain/contracts/zion_contracts"
+    },
+    {
+      "name": "NoizApp",
+      "path": "packages/ui/src/HTML/React/classes/_app/NoizApp"
+    },
+    {
+      "name": "Icon",
+      "path": "packages/ui/src/HTML/React/classes/Icon"
+    },
+    {
+      "name": "simple-storage",
+      "path": "packages/ui/src/pages/simple-storage"
+    },
+    {
+      "name": "pages",
+      "path": "packages/ui/src/pages"
     }
   ],
   "settings": {}
