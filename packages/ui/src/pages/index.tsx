@@ -1,12 +1,21 @@
 import React, { Component, lazy } from "react";
 import styled from "styled-components";
 
+interface FieldProps {
+  className?: string;
+  field: string;
+  value: string;
+}
+class FieldProps {}
+
 interface WalletProps {
   className?: string;
 }
 interface WalletState {
   isEthereum: boolean;
   isMetamask: boolean;
+  isTrust: boolean;
+  isTrustWallet: boolean;
 }
 class WalletState {}
 
@@ -19,6 +28,8 @@ class MetamaskWallet extends Component<
     let state = new WalletState();
     state.isEthereum = false;
     state.isMetamask = false;
+    state.isTrust = false;
+    state.isTrustWallet = false;
     this.state = state;
   }
 
@@ -28,17 +39,24 @@ class MetamaskWallet extends Component<
   setIsMetamask = (isMetamask: boolean) =>
     this.setState({ isMetamask });
 
+  setIsTrust = (isTrust: boolean) =>
+    this.setState({ isTrust });
+
+  setIsTrustWallet = (isTrustWallet: boolean) =>
+    this.setState({ isTrustWallet });
+
   componentDidMount(): void {
-    if (window.ethereum) this.setIsEthereum(true);
-    if (window.ethereum?.isMetaMask)
-      this.setIsMetamask(true);
+    console.log(window.ethereum);
+    const eth = window.ethereum;
+    if (eth) this.setIsEthereum(true);
+    if (eth?.isMetaMask) this.setIsMetamask(true);
+    // @ts-expect-error
+    if (eth?.isTrust) this.setIsTrust(true);
+    // @ts-expect-error
+    if (eth?.isTrustWallet) this.setIsTrustWallet(true);
   }
 
-  Field = (props: {
-    className?: string;
-    field: string;
-    value: string;
-  }) => (
+  Field = (props: FieldProps) => (
     <div className={props.className}>
       <p>{props.field}</p>
       <p id="is-eth-res">{props.value}</p>
@@ -54,17 +72,31 @@ class MetamaskWallet extends Component<
 
   Layout = ({ className }: WalletProps) => {
     const Field = this.StyledField;
+
+    const isEthereum = new FieldProps();
+    isEthereum.field = "is Ethereum:";
+    isEthereum.value = this.state.isEthereum.toString();
+
+    const isMetamask = new FieldProps();
+    isMetamask.field = "is Metamask:";
+    isMetamask.value = this.state.isMetamask.toString();
+
+    const isTrust = new FieldProps();
+    isTrust.field = "is Trust:";
+    isTrust.value = this.state.isTrust.toString();
+
+    const isTrustWallet = new FieldProps();
+    isTrustWallet.field = "is TrustWallet:";
+    isTrustWallet.value =
+      this.state.isTrustWallet.toString();
+
     return (
       <div className={className} id="here">
         <p>metamask</p>
-        <Field
-          field="is Ethereum:"
-          value={this.state.isEthereum.toString()}
-        />
-        <Field
-          field="is Metamask:"
-          value={this.state.isMetamask.toString()}
-        />
+        <Field {...isEthereum} />
+        <Field {...isMetamask} />
+        <Field {...isTrust} />
+        <Field {...isTrustWallet} />
       </div>
     );
   };
