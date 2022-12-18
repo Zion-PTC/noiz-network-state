@@ -125,7 +125,7 @@ class MetamaskWallet extends Component<
       hsl(190, 77%, 28%) 100%
     );
     #container {
-      background-color: #99d0f3;
+      background-color: hsl(203, 78%, 77%);
       border-radius: 0.5rem;
       display: flex;
       width: max-content;
