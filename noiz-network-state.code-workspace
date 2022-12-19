@@ -1,4 +1,8 @@
 {
-  "folders": [{ "path": "." }, { "path": "packages/database" }],
+  "folders": [
+    { "path": "." },
+    { "path": "packages/database" },
+    { "path": "packages/database/EVM" }
+  ],
   "settings": {}
 }
