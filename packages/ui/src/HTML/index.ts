@@ -11,8 +11,13 @@ export {
   Path,
   Img,
   H1,
+  H2,
+  H3,
+  Text,
   Div,
   Circle,
+  Canvas,
+  AreaTagHtml,
 } from "./React";
 import * as Next from "./Next/index";
 import * as HtmlClasses from "./class";
