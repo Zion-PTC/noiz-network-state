@@ -63,7 +63,7 @@ const Container = styled.div<ContainerProps>`
   #inner {
     ${areaBorderPadding(1)}
     background-color: ${props =>
-      props.theme.palette_ryb.orange.setColor(14).value};
+      props.theme.palette_ryb.orange.setColor(3).value};
     ////
     #inner2 {
       ${areaBorderPadding(0.5)}
