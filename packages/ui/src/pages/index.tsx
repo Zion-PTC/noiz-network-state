@@ -37,7 +37,8 @@ const borderColor = prop("borderColor");
 const areaBorderPadding = (padding: number) => css`
   color: ${color};
   padding: ${padding}rem;
-  background-color: ${backgroundColor};
+  background-color: ${props =>
+    props.theme.palette_ryb.orange.value};
   border: 0.1rem solid;
   border-color: ${borderColor};
   border-radius: 1rem;
@@ -61,9 +62,13 @@ const Container = styled.div<ContainerProps>`
   }
   #inner {
     ${areaBorderPadding(1)}
+    background-color: ${props =>
+      props.theme.palette_ryb.orange.setColor(14).value};
     ////
     #inner2 {
       ${areaBorderPadding(0.5)}
+      background-color: ${props =>
+        props.theme.palette_ryb.orange[70]};
     }
   }
 `;
