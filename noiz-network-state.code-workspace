@@ -1,7 +1,13 @@
 {
   "folders": [
     { "path": "." },
+    { "path": "packages/database/src/FS/classes/Reader" },
+    { "path": "packages/ui" },
+    { "path": "packages/ui/posts" },
     { "path": "packages/ui/src/HTML/React/classes/md" },
+    {
+      "path": "packages/ui/src/HTML/React/lib/hooks/useProcessor/Processor/"
+    },
     {
       "path": "packages/ui/src/HTML/React/lib/hooks/useProcessor/Processor/md_react"
     },
