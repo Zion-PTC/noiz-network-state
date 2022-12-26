@@ -3,7 +3,12 @@
     { "path": "." },
     { "path": "tasks" },
     { "path": "apps" },
-    { "path": "packages" }
+    { "path": "packages/zionbase/src/utils" },
+    { "path": "packages/zionbase/src/utils/node" },
+    { "path": "packages/zionbase/src/utils/node/util" },
+    { "path": "packages/zionbase/src/utils/node/util/ZionUtils" },
+    { "path": "packages/zionbase/src/utils/node/util/ZionUtils/strings" },
+    { "path": "packages/zionbase/test/utils/node/util/ZionUtils/strings" }
   ],
   "settings": {}
 }
