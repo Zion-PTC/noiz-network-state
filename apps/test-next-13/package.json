@@ -1,0 +1,16 @@
+{
+  "name": "@zaionapps/test-next-13",
+  "version": "0.0.1",
+  "main": "src/index.tsx",
+  "author": "Gagliano Giacomo, Minucci Arianna ",
+  "license": "MIT",
+  "dependencies": {
+    "@zaionstate/new-ui":"file:packages/new-ui",
+    "next": "^13.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "scripts": {
+    "dev": "next dev"
+  }
+}
