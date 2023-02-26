@@ -24,7 +24,11 @@ export default function page() {
 
   const handleOnSubmit = hos({ setActive, spesaApp, inputs, setSpesaApp });
 
-  const handleAddProduct = hap({ spesaApp, setSpesaApp, active });
+  const handleAddProduct = hap({
+    spesaApp,
+    setSpesaApp,
+    active: active as string,
+  });
 
   return (
     <AppContainer>
@@ -35,7 +39,7 @@ export default function page() {
           handleOnSubmit={handleOnSubmit}
           handleAddProduct={handleAddProduct}
           spesaApp={spesaApp}
-          active={active}
+          active={active as string}
         ></MakePage>
       )}
       {content === "products" && (
