@@ -1,8 +1,25 @@
 {
   "folders": [
     { "path": "." },
-    { "path": "packages/zionbase/src/utils" },
-    { "path": "packages/zionbase/src//zionbase" }
+    {
+      "path": "apps/spesa/src/app",
+      "name": "spesaApp/Page"
+    },
+    {
+      "path": "apps/spesa/src/pages/api/spesa",
+      "name": "spesaApp/classes"
+    },
+    { "path": "packages/database/src/FS/classes", "name": "database/classes" },
+    { "path": "packages/database/src/FS/lib", "name": "database/lib" },
+    { "path": "packages/zionbase/src/utils", "name": "zionbase/utils" },
+    {
+      "path": "packages/zionbase/src/zionbase/DataStructures/Graph",
+      "name": "zionbase/Graph"
+    },
+    {
+      "path": "packages/zionbase/src/zionbase/Types/DataStructures/Graph",
+      "name": "zionbase/types"
+    }
   ],
   "settings": {}
 }
