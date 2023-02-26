@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, MouseEvent } from "react";
-import { spesaApp } from "../../../pages/api/spesa";
+import { spesaApp } from "../pages/api/spesa";
 import { Input } from "./Input";
 import { MakeProductPage } from "./MakeProduct.style";
 import { Page } from "./page.style";
