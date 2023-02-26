@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { spesaApp as sa } from "../../../pages/api/spesa";
-import { SpesaApplication } from "../../../pages/api/spesa/Spesa";
+import { spesaApp as sa } from "../pages/api/spesa";
+import { SpesaApplication } from "../pages/api/spesa/Spesa";
 import { handleAddProduct as hap } from "./lib/handleAddProduct";
 import { handleOnChange as hoc } from "./lib/handleOnChange";
 import { handleOnClick as hocl } from "./lib/handleOnClick";
@@ -15,7 +15,7 @@ import { SideBarMenu } from "./SideBarMenu";
 export default function page() {
   const [content, setContent] = useState<actions>("home");
   const [spesaApp, setSpesaApp] = useState<SpesaApplication>(sa);
-  const [active, setActive] = useState<string>(null);
+  const [active, setActive] = useState<string | null>(null);
   const [inputs, setInputs] = useState(new Map<string, string>());
 
   const handleOnClick = hocl({ setContent });
