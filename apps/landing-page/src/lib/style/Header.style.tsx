@@ -44,8 +44,6 @@ export const TextColorGreen = css`
 export const TextHero = css`
   margin-bottom: 20px;
   font-weight: 400;
-  opacity: 0.5;
-  filter: invert(1);
 `;
 
 export const TextCenter = css`
@@ -54,7 +52,6 @@ export const TextCenter = css`
 
 export const TextWhite = css`
   color: #fff;
-  opacity: 1;
 `;
 const HeaderCss = css`
   display: flex;
