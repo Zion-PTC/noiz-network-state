@@ -17,6 +17,7 @@ import {
 } from "../lib/style/FullPage.style";
 import { Why } from "./Why";
 import { Section } from "./Section";
+import { RollingSection } from "./RollingSection";
 
 const Example = Section;
 const Overview = Section;
@@ -41,7 +42,7 @@ export const FullPage = () => {
         <Overview></Overview>
         <ParallaxIcons>PARALLAX ICONS</ParallaxIcons>
         <Preview id={JUMP_TO_PREVIEW}>PREVIEW</Preview>
-        <RollingCards>ROLLING CARDS</RollingCards>
+        <RollingSection></RollingSection>
         <ParallaxCards>PARALLAX CARDS</ParallaxCards>
         <GettingStarted> GETTING STARTED</GettingStarted>
         <DashboardPreview id={JUMP_TO_DASHBOARD}>
