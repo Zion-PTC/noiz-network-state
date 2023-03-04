@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React from "react";
+
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import {
@@ -10,7 +10,7 @@ import {
 import { Flatten } from "../../../lib/utility";
 import { Image } from "../../Image";
 
-// TODO @giacomogagliano mettere apposto
+// TODO #132 @giacomogagliano mettere apposto
 /////// TYPES
 export type ItemPage_v1Data = {
   src: string;

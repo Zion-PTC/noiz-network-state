@@ -57,7 +57,6 @@ const infos = styled.div<InfosProps_>`
   grid-template-rows: 2fr 1fr 1fr;
 `;
 
-// TODO sistemare any
 type ImageProps = {
   backgroundColor: string;
   borderTop: string;
@@ -101,6 +100,7 @@ type AreaProps = {
   image: boolean;
 } & ImageProps &
   AreaStyle;
+
 export const Area = styled.div<AreaProps>`
   display: grid;
   /* place-items: center; */

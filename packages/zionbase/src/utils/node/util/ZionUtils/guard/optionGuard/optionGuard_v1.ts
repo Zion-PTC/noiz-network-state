@@ -2,14 +2,14 @@ export interface IoptionGuard_v1 {
   <T, Option, Output extends {}>(
     data: T,
     errOption: [Option, Output][]
-  ): [T, Output];
+  ): [T, NonNullable<Output>];
 }
 
 export const optionGuard_v1: IoptionGuard_v1 = function (
   data,
   errOption
 ) {
-  // TODO @giacomogagliano cambiare questa funzione e
+  // TODO #154 @giacomogagliano cambiare questa funzione e
   // renderla simile a switch
   if (!errOption[0]) throw new Error("no options given");
   if (!errOption[1]) throw new Error("no options given");

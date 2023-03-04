@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BaseNoizProps } from "../../../lib";
 
 enum layouts {
   Svg24 = "Svg24",

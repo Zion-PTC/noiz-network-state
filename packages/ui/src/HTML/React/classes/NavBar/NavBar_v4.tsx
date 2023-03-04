@@ -8,6 +8,20 @@ import {
   NavInputState,
 } from "./NavInput";
 
+type NavInput_ = ComponentClass<
+  StyledDefault<{
+    inputId: string;
+    inputName: string;
+    IconComponent?: () => JSX.Element;
+    value?: string;
+    checked?: boolean;
+    iconInput?: boolean;
+    keyValueInput?: boolean;
+    textInput?: boolean;
+  }>,
+  NavInputState
+>;
+
 export type Direction = BooleanizeUnions<
   "horizontal" | "vertical"
 >;
@@ -25,6 +39,7 @@ type layoutTypes = keyof typeof layouts;
 enum styles {
   defaultStyle = "defaultStyle",
   borderOnTop = "borderOnTop",
+  borderOnBottom = "borderOnBottom",
 }
 type styleTypes = keyof typeof styles;
 
@@ -105,6 +120,10 @@ export class NavBar_v4 extends BaseNoiz<
   NavBar_v4Props,
   NavBar_v4State
 > {
+  static defaultProps: NavBar_v4Props = {
+    layout: "main",
+    style: "defaultStyle",
+  };
   constructor(props: NavBar_v4Props) {
     super(props);
     let state = new NavBar_v4State();
@@ -112,13 +131,13 @@ export class NavBar_v4 extends BaseNoiz<
       state.inputs = this.props.inputs;
     state.Inputs = <></>;
     state.layout = () => <></>;
-    state.style = styled(this.Html)``;
+    state.style = this.BorderOnTop;
     this.state = state;
   }
 
   main = (props: NavBar_v4Props) => {
     return (
-      <nav className={props.className}>
+      <nav className={props.className} css={props.css}>
         {props.children}
       </nav>
     );
@@ -204,6 +223,68 @@ export class NavBar_v4 extends BaseNoiz<
         props.theme.primary.backgroundColor};
     }
   `;
+  BorderOnBottom = styled(this.Html)`
+    place-self: start;
+    height: 100%;
+    display: flex;
+    width: 100%;
+    border-bottom: 0.05rem solid
+      ${props => props.theme.palette.darkgrey};
+    > *:not(:last-child) {
+      margin-right: 1rem;
+    }
+    grid-auto-flow: ${props => {
+      if (props.horizontal === true) {
+        return "column";
+      }
+      if (props.vertical === true) {
+        return "row";
+      }
+      return "column";
+    }};
+    input {
+      display: none;
+    }
+    label {
+      cursor: pointer;
+      font-size: 90%;
+      height: 100%;
+      box-sizing: border-box;
+      place-content: center;
+      &:hover {
+        background-color: #b0b3b520;
+      }
+      div {
+        width: max-content;
+        display: ${props => {
+          if (props.text === true) return "grid";
+          if (props.icon === true) return "grid";
+          if (props["key-value"] === true) return "inline";
+        }};
+        place-items: center;
+        p {
+          display: inline;
+        }
+        p:first-child {
+          margin-right: 0.3rem;
+        }
+      }
+      ${props =>
+        props.icon === true &&
+        css`
+          div {
+            display: grid;
+            place-items: center;
+          }
+        `}
+    }
+    input:checked + label {
+      border-bottom: 0.05rem solid
+        ${props => props.theme.primary.borderColor};
+      background-color: ${props =>
+        props.theme.primary.backgroundColor};
+    }
+  `;
 
   defaultStyle = styled(this.Html)``;
 
@@ -216,22 +297,13 @@ export class NavBar_v4 extends BaseNoiz<
       name: styles.defaultStyle,
       style: this.defaultStyle,
     }),
+    new NavBar_v4StyledLayout({
+      name: "borderOnBottom",
+      style: this.BorderOnBottom,
+    }),
   ];
 
-  // @ts-expect-error // TODO @giacomogagliano sistemare
-  NavInput: ComponentClass<
-    StyledDefault<{
-      inputId: string;
-      inputName: string;
-      IconComponent?: () => JSX.Element;
-      value?: string;
-      checked?: boolean;
-      iconInput?: boolean;
-      keyValueInput?: boolean;
-      textInput?: boolean;
-    }>,
-    NavInputState
-  > = NavInput;
+  NavInput: NavInput_ = NavInput as unknown as NavInput_;
 
   defineType(data: NavInputProps) {
     if (this.props.text) data.layout = "text";

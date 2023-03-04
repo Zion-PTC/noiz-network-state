@@ -9,13 +9,11 @@ import {
   Options,
   StatusResult,
 } from "simple-git";
-// BUG also here it give the import but, but only from one entry point
+// BUG #194 @giacomogagliano also here it give the import but, but only from one entry point
 // import {} from "@zionstate/database/EVM";
 import { InitResult } from "simple-git";
 import { ZionGit } from ".";
-import { FS } from "../..";
-
-const { system } = FS;
+import { system } from "../../../src/FS";
 
 export interface IZionGit_v1 {}
 
@@ -176,8 +174,6 @@ export interface IZionGit {
  */
 export function testRepo(path: string[] | string) {
   if (!Array.isArray(path)) path = splitPath(path);
-  console.log("________________PATH: " + path);
-
   const git = new ZionGit(path);
   return git.isRepo();
 }

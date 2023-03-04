@@ -1,7 +1,7 @@
 // import { Data } from "../../../../../../../../../../node_modules/vfile";
 import { createElement, Fragment } from "react";
-import rehypeHighlight from "rehype-highlight";
-import dockerfile from "highlight.js/lib/languages/dockerfile";
+// import rehypeHighlight from "rehype-highlight";
+// import dockerfile from "highlight.js/lib/languages/dockerfile";
 import remarkParse from "remark-parse";
 import remarkGfm from "remark-gfm";
 import remarkRehype from "remark-rehype";
@@ -10,6 +10,7 @@ import { unified } from "unified";
 import rehypeReact from "rehype-react";
 import { Iprocessor } from "../Processor_v2";
 import { visit } from "unist-util-visit";
+import { Code } from "../../../../../style";
 
 // export const md_raw_react_v2: Imd_raw_react_v2 = function () {};
 
@@ -69,16 +70,18 @@ export const md_raw_react_v1: Iprocessor =
           return tree;
         };
       })
-      .use(rehypeHighlight, {
-        languages: { dockerfile },
-      })
+      // .use(rehypeHighlight, {
+      //   languages: { dockerfile },
+      // })
       .use(rehypeReact, {
         createElement,
         Fragment,
         components: {
           // p: props => <p {...props} id="unified"></p>,
           // chart: () => <div>ola</div>,
-          // div: props => <div {...props}>I am so cool</div>,
+          // div: props => <div {...props}>I am so
+          // cool</div>,
+          code: Code,
         },
       })
       .process(text);

@@ -32,6 +32,7 @@ import { WindowEthRequired } from "../../../lib/hooks/useEthereum/useEthereum_v2
 import { dataGuard } from "@zionstate/zionbase/utils";
 import Router from "next/router";
 import Link from "next/link";
+import { BaseNoizProps } from "../../../lib";
 React;
 ////////ETH
 
@@ -274,7 +275,10 @@ export class NoizApp_v2 extends BaseNoiz<
       width: 100%;
       display: flex;
       justify-content: space-between;
-      background-color: ${this.bgcolor};
+      background-color: ${props =>
+        props.theme.palette_ryb.blue_green
+          .setSaturation(10)
+          .setBrightness(9).value};
       * {
         align-self: center;
       }
@@ -301,7 +305,10 @@ export class NoizApp_v2 extends BaseNoiz<
         this.state.theme.backgroundColor};
     }
     footer {
-      background-color: ${this.bgcolor};
+      background-color: ${props =>
+        props.theme.palette_ryb.blue_green
+          .setSaturation(10)
+          .setBrightness(9).value};
     }
   `;
 
@@ -461,11 +468,18 @@ export class NoizApp_v2 extends BaseNoiz<
     ////// CHIAMATA PER CONTRACTFACTORIES
     const factory = evm.contractFactories[contract];
     const provider = evm.provider;
-    provider.on("network", this.handleNetworkChange);
     this.setEvm(evm)
       .setProvider(provider)
       .setHandleClick(requestAccounts(provider))
       .setContract(factory!.attach(contractAddress!));
+  };
+
+  setUpListeners = () => {
+    const prov = new ethers.providers.Web3Provider(
+      window.ethereum!,
+      "any"
+    );
+    prov.on("network", this.handleNetworkChange);
   };
 
   handleNetworkChange = handleNetworkChange;
@@ -489,7 +503,7 @@ export class NoizApp_v2 extends BaseNoiz<
     return prev !== curr;
   }
 
-  // TODO aggiungere questa in BaseNoiz
+  // TODO #137 @giacomogagliano aggiungere questa in BaseNoiz
   UpdateHandler = class<T> {
     current?: T;
     previous?: T;
@@ -511,6 +525,13 @@ export class NoizApp_v2 extends BaseNoiz<
     prevState: Readonly<NoizApp_v2State>,
     __?: any
   ) => {
+    if (this.state.evm) {
+      const prevListeners =
+        prevState.evm?.provider.listeners();
+      const currListneres =
+        this.state.evm.provider.listeners();
+      console.log(prevListeners, currListneres);
+    }
     const hasUpdated = this.hasUpdated;
     const initizalizeWeb3 = this.initizalizeWeb3;
     const listAccounts = this.listAccounts;
@@ -525,16 +546,20 @@ export class NoizApp_v2 extends BaseNoiz<
     const prevIsConn = prevState.isConnected;
     const currPrvdr = this.state.provider;
     const prevPrvdr = prevState.provider;
+    const prevEvm = prevState.evm;
+    const currEvm = this.state.evm;
     // statechanges
     const prefScheme = hasUpdated(prevScheme, currScheme);
     const metamask = hasUpdated(prevMtmsk, currMtmsk);
     const provider = hasUpdated(prevPrvdr, currPrvdr);
     const isConn = has(currIsConn).changedFrom(prevIsConn);
+    const isEvm = has(currEvm).changedFrom(prevEvm);
     // EXECUTIONS
     prefScheme && this.setTheme(themes[currScheme]);
     metamask && initizalizeWeb3();
     provider && listAccounts(dataGuard(currMtmsk, ""));
     isConn && this.handleConnection();
+    isEvm && this.setUpListeners();
   };
 
   isDarkColorScheme = () =>
@@ -550,6 +575,10 @@ export class NoizApp_v2 extends BaseNoiz<
       : themes.light;
     this.setPrefersColorScheme(newColorScheme);
   };
+
+  componentWillUnmount() {
+    console.log("unmounted");
+  }
 
   didMount() {
     const isDark = this.isDarkColorScheme();
