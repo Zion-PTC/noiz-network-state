@@ -11,9 +11,6 @@
     },
     {
       "path": "packages"
-    },
-    {
-      "path": "node_modules/gun"
     }
   ],
   "settings": {}
