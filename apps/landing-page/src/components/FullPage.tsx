@@ -42,7 +42,7 @@ export const FullPage = () => {
         <Overview></Overview>
         <ParallaxIcons>PARALLAX ICONS</ParallaxIcons>
         <Preview id={JUMP_TO_PREVIEW}>PREVIEW</Preview>
-        <RollingSection></RollingSection>
+        <RollingSection images={[]}></RollingSection>
         <ParallaxCards>PARALLAX CARDS</ParallaxCards>
         <GettingStarted> GETTING STARTED</GettingStarted>
         <DashboardPreview id={JUMP_TO_DASHBOARD}>
