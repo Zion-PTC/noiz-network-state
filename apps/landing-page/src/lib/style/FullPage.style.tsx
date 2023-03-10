@@ -7,7 +7,7 @@ export const CardSection = styled.div``;
 export const ParallaxIcons = styled.div``;
 export const Preview = styled.div``;
 export const RollingCards = styled.div``;
-export const ParallaxCards = styled.div``;
+
 export const GettingStarted = styled.div``;
 export const DashboardPreview = styled.div``;
 export const SocialFeedback = styled.div``;
