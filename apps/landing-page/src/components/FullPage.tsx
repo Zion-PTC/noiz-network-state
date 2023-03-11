@@ -6,7 +6,6 @@ import {
   FullPageComponent,
   GettingStarted,
   JoinCommuny,
-  ParallaxIcons,
   Preview,
   SingUp,
   SocialFeedback,
@@ -17,6 +16,7 @@ import { Why } from "./Why";
 import { Section } from "./Section";
 import { RollingSection } from "./RollingSection";
 import { ParallaxCard } from "./ParallxCard";
+import { ParallaxIcons } from "./ParallaxIcons";
 
 const Example = Section;
 const Overview = Section;
@@ -39,7 +39,7 @@ export const FullPage = () => {
         <Example></Example>
         <CardSection>CARD SECTION</CardSection>
         <Overview></Overview>
-        <ParallaxIcons>PARALLAX ICONS</ParallaxIcons>
+        <ParallaxIcons></ParallaxIcons>
         <Preview id={JUMP_TO_PREVIEW}>PREVIEW</Preview>
         <RollingSection images={[]}></RollingSection>
         <ParallaxCard></ParallaxCard>
