@@ -11,7 +11,7 @@ const developAppsSection = css`
   background-position: 50% 50%, 0px 0px;
   background-size: cover;
 `;
-const wContainer = css`
+export const wContainer = css`
   margin-left: auto;
   margin-right: auto;
   max-width: 940px;
