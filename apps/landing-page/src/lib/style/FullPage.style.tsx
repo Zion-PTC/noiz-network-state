@@ -4,7 +4,6 @@ import { Section } from "./StylesSheet";
 import { Dark } from "./Why.style";
 
 export const CardSection = styled.div``;
-export const ParallaxIcons = styled.div``;
 export const Preview = styled.div``;
 export const RollingCards = styled.div``;
 
