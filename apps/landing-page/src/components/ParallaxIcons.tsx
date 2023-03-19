@@ -21,7 +21,7 @@ export const ParallaxIcons = () => (
         <img
           src="assets/app-row-3.png"
           loading="lazy"
-          className="app-icons-row app-icons-row-3"
+          className="app-icons-row-3"
         />
       </div>
       <img src="assets/icon_4.svg" loading="lazy" className="app-store-icon" />

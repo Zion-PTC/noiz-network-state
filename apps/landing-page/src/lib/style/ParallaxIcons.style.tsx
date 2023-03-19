@@ -30,13 +30,6 @@ const image13 = css`
   margin-left: auto;
 `;
 const textSpan3 = css`
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#35ded4),
-    to(#2d47d0)
-  );
   background-image: linear-gradient(90deg, #35ded4, #2d47d0);
   -webkit-background-clip: text;
   background-clip: text;
@@ -47,6 +40,9 @@ const imgVerticalMiddle = css`
   vertical-align: middle;
   display: inline-block;
 `;
+const iconRowW3 = css`
+  margin-top: -15%;
+`;
 export const ParllaxIconArea = styled.div`
   #container {
     ${Container}
@@ -55,6 +51,10 @@ export const ParllaxIconArea = styled.div`
     .app-icons-row-container {
       .app-icons-row {
         width: 100%;
+      }
+      .app-icons-row-3 {
+        width: 100%;
+        ${iconRowW3}
       }
     }
     .app-store-icon {
