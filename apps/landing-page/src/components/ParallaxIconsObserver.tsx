@@ -95,7 +95,7 @@ class ParallaxIconsObserver extends Component<
       }
       const updateAnimation = () => {
         const newTranslateY =
-          translateY + (targetTranslateY - translateY) * 0.1; // is the speed of the animation
+          translateY + (targetTranslateY - translateY) * 0.02; // is the speed of the animation
         this.setState({ translateY: newTranslateY, lastScrollY: scrollY });
         if (newTranslateY !== targetTranslateY) {
           requestAnimationFrame(updateAnimation);
