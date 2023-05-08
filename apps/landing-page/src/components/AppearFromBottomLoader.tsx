@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import {
   textBigSubStateA,
   textBigSubStateB,
-} from "../classes/TextBigSub.style";
+} from "../lib/style/TextBigSub.style";
 import { Loader } from "../lib/client/Loader";
 
 export const AppearFromBottomLoader = ({
