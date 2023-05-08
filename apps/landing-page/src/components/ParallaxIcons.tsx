@@ -2,6 +2,13 @@ import React from "react";
 import { ParllaxIconArea } from "../lib/style/ParallaxIcons.style";
 import ParallaxIconsObserver from "./ParallaxIconsObserver";
 
+const P_I_BIG_HEAD_TEXT_FIRST_LINE = "Of course, there’s an entire";
+const P_I_BIG_HEAD_TEXT_SECOND_LINE = "freaking";
+const P_I_BIG_HEAD_TEXT_END = "app store.";
+const P_I_PARAGRAPH_TEXT =
+  "Discover amazing self-hosted apps in Umbrel App Store and install them in one click.";
+const P_I_LINK_TEXT = "View the Umbrel App Store";
+
 export const ParallaxIcons = () => (
   <ParllaxIconArea>
     <div id="container">
@@ -27,21 +34,18 @@ export const ParallaxIcons = () => (
       <img src="assets/icon_4.svg" loading="lazy" className="app-store-icon" />
       <img src="assets/icon_4.svg" loading="lazy" className="image-13" />
       <h1 className="big-heading">
-        Of course, there’s an entire
+        {P_I_BIG_HEAD_TEXT_FIRST_LINE}
         <br />
-        freaking
-        <span className="text-span-3"> app store.</span>
+        {P_I_BIG_HEAD_TEXT_SECOND_LINE}
+        <span className="text-span-3"> {P_I_BIG_HEAD_TEXT_END}</span>
       </h1>
-      <p>
-        Discover amazing self-hosted apps in Umbrel App Store and install them
-        in one click.
-      </p>
+      <p>{P_I_PARAGRAPH_TEXT}</p>
       <a
         href="https://apps.umbrel.com"
         target="_blank"
         className="arrow-link w-inline-block"
       >
-        <div className="arrow-link-text">View the Umbrel App Store</div>
+        <div className="arrow-link-text">{P_I_LINK_TEXT}</div>
         <img
           src="assets/arrow_1.svg"
           loading="lazy"

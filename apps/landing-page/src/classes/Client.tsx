@@ -7,5 +7,7 @@ const Div = styled.div`
 `;
 
 export default function Client() {
-  return <Div>Client</Div>;
+  const CLIENT_MAIN_TEXT = "Client";
+
+  return <Div>{CLIENT_MAIN_TEXT}</Div>;
 }

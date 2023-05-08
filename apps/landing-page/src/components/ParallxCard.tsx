@@ -3,6 +3,11 @@ import { IconZion } from "../lib/style/Body.style";
 import { ParallaxCardsArea } from "../lib/style/ParallaxCard.style";
 import ScrollingCardObserver from "./ScrollingCardObserver";
 
+const PARALLAX_CARD_H2 = "Launch your app on the Umbrel App Store ";
+const PARALLAX_CARD_P =
+  "Use any programming language, database or framework to build your app for Umbrel, and get it in front of thousands of users on day one. ";
+const PARALLAX_CARD_LINK_TEXT = "Read the one-page doc";
+
 export const ParallaxCard = () => (
   <ParallaxCardsArea>
     <div id="develop-apps-section">
@@ -20,20 +25,18 @@ export const ParallaxCard = () => (
                     />
                     <div id="card-header">
                       <h2 className="heading card-heading develop-apps-card-heading text-white">
-                        Launch your app on the Umbrel App Store
+                        {PARALLAX_CARD_H2}
                       </h2>
                     </div>
                     <p className="paragraph text-white text-left">
-                      Use any programming language, database or framework to
-                      build your app for Umbrel, and get it in front of
-                      thousands of users on day one.
+                      {PARALLAX_CARD_P}
                     </p>
                     <a
                       href="https://github.com/getumbrel/umbrel-apps/blob/master/README.md"
                       target="_blank"
                       id="arrow-link"
                     >
-                      <div id="arrow-link-text">Read the one-page doc</div>
+                      <div id="arrow-link-text">{PARALLAX_CARD_LINK_TEXT}</div>
                       <IconZion arrowRight></IconZion>
                     </a>
                   </div>
