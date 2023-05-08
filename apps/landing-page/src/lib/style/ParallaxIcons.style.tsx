@@ -90,5 +90,44 @@ export const ParllaxIconArea = styled.div`
       ${arrowLink}
       ${wInlineBlock}
     }
+    .app-store-images {
+      position: relative;
+      margin-top: 60px;
+    }
+    .app-store-image-center {
+      display: block;
+      width: 600px;
+      margin-right: auto;
+      margin-left: auto;
+      border-radius: 1%;
+      box-shadow: 1px 1px 40px 0 rgba(0, 0, 0, 0.2);
+    }
+    .app-store-image-left {
+      position: absolute;
+      left: 0px;
+      top: 40px;
+      z-index: -1;
+      width: 500px;
+      border: 1px solid #eceef1;
+      border-radius: 1%;
+      box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.1);
+
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
+    }
+    .app-store-image-right {
+      position: absolute;
+      top: 40px;
+      right: 0px;
+      z-index: -1;
+      width: 500px;
+      border: 1px solid #eceef1;
+      border-radius: 1%;
+      box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.1);
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
+    }
   }
 `;
