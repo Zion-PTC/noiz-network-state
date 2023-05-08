@@ -12,6 +12,7 @@
   - [Connessione tramite pc](#connessione-tramite-pc)
 - [BACKUP DELLA SD](#backup-della-sd)
 - [COMMAND LINE](#command-line)
+  - [NANO EDITOR](#nano-editor)
 
 # UBUNTU UPDATE E UPGRADE
 
@@ -173,6 +174,59 @@ ExecStart=
 ExecStart=-/sbin/agetty -o '-p -f -- \\u' --noclear --autologin ubuntu - $TERM
 ```
 
+## VERIFICA CONFIGURAZIONE
+
+Per verificare se la configurazione dell'autologin su tty1 del tuo server Ubuntu installato su Raspberry funziona correttamente, puoi seguire questi passaggi:
+
+1. Verifica lo stato del servizio getty di tty1 con il seguente comando:
+   css
+
+```
+systemctl status getty@tty1.service
+```
+
+2. Se il servizio è attivo, dovresti vedere un output simile a questo:
+
+```
+● getty@tty1.service - Getty on tty1
+     Loaded: loaded (/lib/systemd/system/getty@.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2023-05-01 12:00:00 CEST; 3 days ago
+       Docs: man:agetty(8)
+             man:systemd-getty-generator(8)
+             https://www.freedesktop.org/wiki/Software/systemd/catalog/daemons/
+   Main PID: 1234 (agetty)
+      Tasks: 1 (limit: 4915)
+     Memory: 272.0K
+     CGroup: /system.slice/system-getty.slice/getty@tty1.service
+             └─1234 /sbin/agetty --autologin NOME_UTENTE --noclear %I $TERM
+
+```
+
+Assicurati che il servizio sia "active (running)" e che mostri l'opzione di autologin che hai inserito. 3. Verifica lo stato del servizio systemd con il seguente comando:
+lua
+
+```
+systemctl status systemd-logind.service
+```
+
+4. Se il servizio è attivo, dovresti vedere un output simile a questo:
+
+```
+● systemd-logind.service - Login Service
+     Loaded: loaded (/lib/systemd/system/systemd-logind.service; static; vendor preset: enabled)
+     Active: active (running) since Mon 2023-05-01 12:00:00 CEST; 3 days ago
+       Docs: man:systemd-logind.service(8)
+             man:logind.conf(5)
+             https://www.freedesktop.org/wiki/Software/systemd/catalog/daemons/
+             https://www.freedesktop.org/wiki/Software/systemd/multiseat/
+   Main PID: 1234 (systemd-logind)
+      Tasks: 1 (limit: 4915)
+     Memory: 1.1M
+     CGroup: /system.slice/systemd-logind.service
+             └─1234 /lib/systemd/systemd-logind
+
+```
+
 Una volta che abbiamo configurato l'accesso automatico dell'utente "ubuntu" sulla tty1 del sistema, è necessario riavviare il server Ubuntu per rendere effettive le modifiche. Per fare ciò, possiamo digitare il comando:
 
 ```
@@ -258,4 +312,81 @@ sudo ufw allow ssh
 
 # BACKUP DELLA SD
 
+Questa è la guida passo passo su come utilizzare ApplePi-Baker per effettuare il backup della scheda SD del Raspberry Pi senza spazi vuoti e ripristinare il backup su una nuova schedina utilizzando Raspberry Pi Imager. Ricorda di prestare sempre attenzione durante il processo di backup e ripristino per evitare di perdere dati importanti.
+
+### Effettuare il backup della scheda SD del Raspberry Pi senza spazi vuoti con ApplePi-Baker
+
+1. Scaricare e installare ApplePi-Baker sul proprio computer.
+
+2. Inserire la scheda SD del Raspberry Pi nel computer tramite un adattatore SD.
+
+3. Aprire ApplePi-Baker e selezionare la scheda SD del Raspberry Pi dall'elenco dei dispositivi disponibili.
+
+4. Selezionare la scheda SD e fare clic sul pulsante "Read Backup".
+
+5. Selezionare la posizione in cui si desidera salvare il backup della scheda SD e fare clic su "Save".
+
+6. Attendere il completamento del processo di backup. Ci vorrà del tempo a seconda delle dimensioni della scheda SD e della velocità di lettura del computer.
+
+7. Una volta completato il processo di backup, rimuovere la scheda SD dal computer.
+
+### Ripristinare il backup su una nuova schedina con Raspberry Pi Imager
+
+1. Scaricare e installare Raspberry Pi Imager sul proprio computer.
+
+2. Inserire la nuova scheda SD nel computer tramite un adattatore SD.
+
+3. Aprire Raspberry Pi Imager e selezionare l'opzione "Use custom" dalla finestra principale.
+
+4. Selezionare il file di backup creato con ApplePi-Baker e fare clic su "Open".
+
+5. Selezionare la nuova scheda SD come destinazione per il ripristino del backup.
+
+6. Fare clic sul pulsante "Write" e attendere il completamento del processo di ripristino.
+
+7. Una volta completato il processo di ripristino, rimuovere la nuova scheda SD dal computer e inserirla nel Raspberry Pi.
+
+8. Accendere il Raspberry Pi e verificare che il sistema operativo sia stato ripristinato correttamente.
+
+POSIZIONI CONNESSE:
+`diskutil list `
+PROCESSI ATTIVI
+`ps aux | grep dd `  
+CON NUMERO PROCESSO TROVATO PRECEDENTEMENTE CONTROLLO DATI TRASFERITI
+`sudo kill -INFO 1821`
+
+Ripristino SD dall'immagine di backup
+
+`/Users/Ari/Zion_Backup/zion23_2.img`
+
 # COMMAND LINE
+
+## NANO EDITOR
+
+Nano è un editor di testo a riga di comando, utilizzato principalmente su sistemi Linux e Unix. In pratica, Nano è uno strumento che consente di modificare il contenuto di file di testo direttamente dal terminale.
+Puoi utilizzare Nano per modificare file di configurazione, script, documenti di testo e qualsiasi altro tipo di file di testo. L'editor è molto utile per coloro che lavorano su server Linux e non hanno accesso a un'interfaccia grafica per la modifica dei file.
+
+COME USARE NANO
+
+Per entrare in modalità di modifica, basta aprire un file con nano e iniziare a digitare. Quando hai finito di modificare il file, puoi salvarlo e chiudere premendo Ctrl + X, seguito da Y per confermare la salvataggio e poi Invio per confermare il nome del file. Per chiudere il file senza salvare le modifiche, premere Ctrl + X, seguito da N.
+
+|                  Comando                   |                                            Descrizione                                            |
+| :----------------------------------------: | :-----------------------------------------------------------------------------------------------: |
+|                nano [file]                 |                         Apre il file specificato in Nano per la modifica                          |
+|                  Ctrl + G                  |                                    Visualizza la guida di Nano                                    |
+|                  Ctrl + X                  |                  Chiude il file in modifica e chiede di salvarlo, se necessario                   |
+|                  Ctrl + O                  |                                     Salva il file in modifica                                     |
+|                  Ctrl + R                  |                                Inserisce un file nel file corrente                                |
+|                  Ctrl + W                  |                                    Cerca una stringa nel file                                     |
+|                  Ctrl + K                  |                                      Taglia la riga corrente                                      |
+|                  Ctrl + U                  |                             Incolla la riga precedentemente tagliata                              |
+|                  Ctrl + J                  |                              Giustifica il testo nella riga corrente                              |
+|                  Alt + U                   |                                     Annulla l'ultima modifica                                     |
+|                  Alt + E                   |                              Ripristina l'ultima modifica annullata                               |
+|                  Alt + A                   |                                 Seleziona tutto il testo del file                                 |
+|                  Alt + 6                   |                               Commenta/Decommenta la riga corrente                                |
+|                  Ctrl + C                  |                             Mostra la posizione del cursore nel file                              |
+|                 Ctrl + \_                  |                        Inserisce un carattere specifico (in formato octal)                        |
+| Ctrl + \|Va alla riga specificata nel file |
+|                  Ctrl + T                  |                     Consente di effettuare una sostituzione in tutto il file                      |
+|                  Ctrl + V                  | Passa al menu visuale di Nano, in cui si possono tagliare, copiare e incollare testo con il mouse |

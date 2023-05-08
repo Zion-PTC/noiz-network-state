@@ -12,6 +12,7 @@
   - [Connection from pc](#connection-from-pc)
 - [SD CARD BACKUP](#sd-card-backup)
 - [COMMAND LINE](#command-line)
+  - [NANO EDITOR](#nano-editor)
 
 # UBUNTU UPDATE E UPGRADE
 
@@ -173,6 +174,34 @@ ExecStart=
 ExecStart=-/sbin/agetty -o '-p -f -- \\u' --noclear --autologin ubuntu - $TERM
 ```
 
+## VERIFY CONFIGURATION
+
+To verify that the autologin configuration on tty1 of your Ubuntu server installed on Raspberry Pi is working correctly, you can follow these steps:
+
+1. Check the status of the tty1 getty service with the following command:
+
+```
+systemctl status getty@tty1.service
+```
+
+2. If the service is active, you should see an output similar to this:
+
+```
+● getty@tty1.service - Getty on tty1 Loaded: loaded (/lib/systemd/system/getty@.service; enabled; vendor preset: enabled) Active: active (running) since Mon 2023-05-01 12:00:00 CEST; 3 days ago Docs: man:agetty(8) man:systemd-getty-generator(8) https://www.freedesktop.org/wiki/Software/systemd/catalog/daemons/ Main PID: 1234 (agetty) Tasks: 1 (limit: 4915) Memory: 272.0K CGroup: /system.slice/system-getty.slice/getty@tty1.service └─1234 /sbin/agetty --autologin NOME_UTENTE --noclear %I $TERM
+```
+
+Make sure the service is "active (running)" and shows the autologin option that you have inserted. 3. Check the status of the systemd service with the following command:
+
+```
+systemctl status systemd-logind.service
+```
+
+4. If the service is active, you should see an output similar to this:
+
+```
+● systemd-logind.service - Login Service Loaded: loaded (/lib/systemd/system/systemd-logind.service; static; vendor preset: enabled) Active: active (running) since Mon 2023-05-01 12:00:00 CEST; 3 days ago Docs: man:systemd-logind.service(8) man:logind.conf(5) https://www.freedesktop.org/wiki/Software/systemd/catalog/daemons/ https://www.freedesktop.org/wiki/Software/systemd/multiseat/ Main PID: 1234 (systemd-logind) Tasks: 1 (limit: 4915) Memory: 1.1M CGroup: /system.slice/systemd-logind.service └─1234 /lib/systemd/systemd-logind
+```
+
 # SSH CONNECTION
 
 ## Prerequisiti
@@ -183,18 +212,23 @@ UFW (Uncomplicated Firewall) is a firewall configuration utility provided with U
 
 ```
 sudo ufw status
+
 ```
 
 If UFW is already installed and enabled on your system, you will see output similar to this:
 
 ```
+
 Status: active
+
 ```
 
 Otherwise, you will see a message indicating that UFW is currently not enabled or installed. In this case, you can install it using the command:
 
 ```
+
 sudo apt install ufw
+
 ```
 
 ## Enabling
@@ -211,13 +245,17 @@ sudo apt install openssh-server
 Upon installation completion, the SSH service will be automatically started. You can verify if SSH is working by typing:
 
 ```
+
 sudo systemctl status ssh
+
 ```
 
 Ubuntu comes with a firewall configuration utility called UFW. If your system has a firewall enabled, make sure to open the SSH port:
 
 ```
+
 sudo ufw allow ssh
+
 ```
 
 ## Connection from pc
@@ -248,4 +286,49 @@ sudo ufw allow ssh
 
 # SD CARD BACKUP
 
+SALVA Backup
+
+POSIZIONI CONNESSE:
+`diskutil list `
+PROCESSI ATTIVI
+`ps aux | grep dd `  
+CON NUMERO PROCESSO TROVATO PRECEDENTEMENTE CONTROLLO DATI TRASFERITI
+`sudo kill -INFO 1821`
+
+Ripristino SD dall'immagine di backup
+
+`/Users/Ari/Zion_Backup/zion23_2.img`
+
 # COMMAND LINE
+
+## NANO EDITOR
+
+Nano is a command-line text editor, mainly used on Linux and Unix systems. Essentially, Nano is a tool that allows you to edit the contents of text files directly from the terminal.
+You can use Nano to modify configuration files, scripts, text documents, and any other type of text file. The editor is very useful for those who work on Linux servers and do not have access to a graphical interface for file editing.
+HOW TO USE NANO
+To enter edit mode, simply open a file with Nano and start typing. When you're done editing the file, you can save and close it by pressing Ctrl + X, followed by Y to confirm the save and then Enter to confirm the file name. To close the file without saving any changes, press Ctrl + X, followed by N.
+
+|                     Command                     |                                        Description                                         |
+| :---------------------------------------------: | :----------------------------------------------------------------------------------------: |
+|                   nano [file]                   |                        Opens the specified file in Nano for editing                        |
+|                    Ctrl + G                     |                             Displays Nano's help documentation                             |
+|                    Ctrl + X                     |               Closes the file being edited and prompts to save, if necessary               |
+|                    Ctrl + O                     |                                   Saves the edited file                                    |
+|                    Ctrl + R                     |                            Inserts a file into the current file                            |
+|                    Ctrl + W                     |                           Searches for a string within the file                            |
+|                    Ctrl + K                     |                                   Cuts the current line                                    |
+|                    Ctrl + U                     |                               Pastes the previously cut line                               |
+|                    Ctrl + J                     |                           Justifies the text on the current line                           |
+|                     Alt + U                     |                                Undoes the last modification                                |
+|                     Alt + E                     |                            Redoes the last undone modification                             |
+|                     Alt + A                     |                              Selects all the text in the file                              |
+|                     Alt + 6                     |                       Toggles commenting on/off for the current line                       |
+|                    Ctrl + C                     |                       Displays the cursor's position within the file                       |
+|                    Ctrl + \_                    |                       Inserts a specific character (in octal format)                       |
+| Ctrl + \|Goes to the specified line in the file |
+|                    Ctrl + T                     |                Allows for a find-and-replace operation throughout the file                 |
+|                    Ctrl + V                     | Switches to Nano's visual menu, where text can be cut, copied, and pasted using the mouse. |
+
+```
+
+```
