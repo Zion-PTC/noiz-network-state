@@ -1,6 +1,7 @@
 import React from "react";
 import { ParllaxIconArea } from "../lib/style/ParallaxIcons.style";
 import ParallaxIconsObserver from "./ParallaxIconsObserver";
+import ParallaxObserverWindow from "./ParallaxObserverWindow";
 
 export const ParallaxIcons = () => (
   <ParllaxIconArea>
@@ -49,12 +50,7 @@ export const ParallaxIcons = () => (
           className="arrow-link-icon"
         />
       </a>
-      <div className="app-store-assets">
-        <img
-          src="assets/Group-1601.jpg"
-          loading="lazy"
-          className="app-store-hero-image"
-        />
+      <ParallaxObserverWindow>
         <img
           src="assets/Group-1601.jpg"
           loading="lazy"
@@ -65,7 +61,12 @@ export const ParallaxIcons = () => (
           loading="lazy"
           className="app-store-image-right"
         />
-      </div>
+      </ParallaxObserverWindow>
+      <img
+        src="assets/Group-1601.jpg"
+        loading="lazy"
+        className="app-store-image-center"
+      />
     </div>
   </ParllaxIconArea>
 );
